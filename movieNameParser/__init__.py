@@ -3,10 +3,10 @@ from urllib2 import Request, urlopen
 import urllib
 
 def downloadPoster(movieName):
-	apiKey = 'api_key=<key>' # Replace <key> with api key
-	imgBaseURL = "http://image.tmdb.org/t/p/w500/"
-	movie = movieName.replace(' ','+').replace('-', "%2D").replace("'", '%27').replace("&", "%26")
-	url = "http://api.themoviedb.org/3/search/movie?query=" + movie + '&' + apiKey
+	apiKey = 'api_key=9284564ce6555c45e229e53a7d463cb0'
+	imgBaseURL = "http://image.tmdb.org/t/p/w500/" # URL to be merged with poster_path
+	movie = movieName.replace(' ','+').replace('-', "%2D").replace("'", '%27').replace("&", "%26") # Make movieName HTTP friendly
+	url = "http://api.themoviedb.org/3/search/movie?query=" + movie + '&' + apiKey 
 	
 	print 'Downloading ' + movieName
 
@@ -24,7 +24,7 @@ def downloadPoster(movieName):
 	else:
 		print movieName + ' not found.'
 
-mList = open('movieList.txt', 'r')
+mList = open('movieList.txt', 'r') # Open movieList.txt
 for movie in mList.readlines():
 	if "srt" not in movie:
 		if "mp4" or "avi" or "mkv" or "mpg" in movie:
