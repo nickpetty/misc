@@ -28,6 +28,6 @@ mList = open('movieList.txt', 'r') # Open movieList.txt
 for movie in mList.readlines():
 	if "srt" not in movie:
 		if "mp4" or "avi" or "mkv" or "mpg" in movie:
-			toStrip = re.compile(r'(extended?.*?|unrated?.*?\(?\[?\d{4}?.*[mp4|avi|mkv|mpg]+)', re.I) # Strip out 'date', 'extended', 'unrated', misc info, and extension.	
+			toStrip = re.compile(r'([uncut]?[extended]?\(?\[?\d{4}?.*(mp4|avi|mkv|mpg+))', re.I) # Strip out 'date', 'extended', 'unrated', misc info, and extension.	
 			movie = toStrip.split(movie)[0].replace('.',' ').strip('[\n,mp4,avi,mkv,mpg]').rstrip()
 			downloadPoster(movie)
