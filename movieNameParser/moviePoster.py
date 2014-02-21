@@ -3,7 +3,7 @@ from urllib2 import Request, urlopen
 import urllib
 
 def downloadPoster(movieName):
-	apiKey = 'api_key=9284564ce6555c45e229e53a7d463cb0'
+	apiKey = '<apiKey>'
 	imgBaseURL = "http://image.tmdb.org/t/p/w500/" # URL to be merged with poster_path
 	movie = movieName.replace(' ','+').replace('-', "%2D").replace("'", '%27').replace("&", "%26") # Make movieName HTTP friendly
 	url = "http://api.themoviedb.org/3/search/movie?query=" + movie + '&' + apiKey 
